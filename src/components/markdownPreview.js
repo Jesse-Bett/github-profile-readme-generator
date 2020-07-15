@@ -1,5 +1,4 @@
 import React from 'react';
-import './markdownPreview.css';
 
 const TitlePreview = (props) => {
     if (props.prefix && props.title) {
@@ -80,28 +79,28 @@ const SocialPreview = (props) => {
 const VisitorsBadgePreview = (props) => {
     let link = "https://visitor-badge.glitch.me/badge?page_id="+props.github+'.'+props.github
     if (props.show) {
-        return (<div className="badge"> <img src={link} alt={props.github}/> </div>)
+        return (<div className="badge"> <img className="badgeImage" src={link} alt={props.github}/> </div>)
     }
     return null;
 }
 const GithubStatsPreview = (props) => {
     let link = "https://github-readme-stats.vercel.app/api?username="+props.github+"&show_icons=true"
     if (props.show) {
-        return (<div className="card"> <img src={link} alt={props.github}/> </div>)
+        return (<div className="card"> <img className="cardImage" src={link} alt={props.github}/> </div>)
     }
     return null;
 }
 
 const MarkdownPreview = (props) => {
     return (
-        <>
+        <div id="markdown-preview">
             <TitlePreview prefix={props.prefix.title} title={props.data.title} />
             <SubTitlePreview subtitle={props.data.subtitle} />
             <VisitorsBadgePreview show={props.data.visitorsBadge} github={props.social.github}/>
             <WorkPreview work={props}/>
             <GithubStatsPreview show={props.data.githubStats} github={props.social.github} />
             <SocialPreview social={props.social} />
-        </>
+        </div>
     )
 }
 
