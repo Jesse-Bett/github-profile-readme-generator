@@ -143,14 +143,14 @@ input:focus {
     padding: 1%;
     text-align: center;
     cursor: pointer;
-    justify-self: flex-end;
+    /* justify-self: flex-end; */
 }
 .markdown-util {
     display: flex;
     justify-content: flex-end;
 }
 .preview-button {
-    justify-self: flex-end;
+    /* justify-self: flex-end; */
     border: 2px solid var(--grey-15);
     padding: 1%;
     text-align: center;
@@ -198,8 +198,8 @@ input:focus {
     align-items: center;
 }
 .icon {
-    width: 20px;
-    height: 20px;
+    width: 25px;
+    height: 25px;
     margin: 1%;
     cursor: pointer;
 }
@@ -212,6 +212,7 @@ input:focus {
 .heading {
     color: var(--dark-blue);
     font-family: 'Lato', sans-serif;
+    cursor: pointer;
 }
 .footer {
     margin: 2% 0%;
