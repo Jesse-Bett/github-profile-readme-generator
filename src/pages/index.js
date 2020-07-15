@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react"
+import React, { useState } from "react"
 import MarkdownPreview from "../components/markdownPreview";
 import Markdown from '../components/markdown';
 import Header from '../components/header';
@@ -11,6 +11,7 @@ import gsap from 'gsap';
 import Loader from '../components/loader';
 import Footer from '../components/footer';
 import './index.css'
+import SEO from '../components/seo';
 
 const IndexPage = () => {
   const [prefix, setPrefix] = useState({
@@ -154,7 +155,7 @@ const IndexPage = () => {
   }
   return (
     <>
-      {/* <SEO title="Home" /> */}
+      <SEO title="Github Profile Readme Generator" description="Github Profile Readme Generator" />
       <Header heading="Github Profile Readme Generator" />
       <div className="form">
         <Title data={data} prefix={prefix} handleDataChange={handleDataChange} handlePrefixChange={handlePrefixChange} />
@@ -168,22 +169,21 @@ const IndexPage = () => {
             <div className="warning">* Please add github username to use these add-ons</div> : ''}
         </div>
         <div className="submit">
-          <div className="button generate" onClick={handleGenerate}>Generate README</div>
+          <div className="button generate" tabIndex="0" role="button" onClick={handleGenerate}>Generate README</div>
         </div>
       </div>
       {displayLoader ? <Loader /> : ''}
-      {/* <div className="section preview"></div> */}
       {(generateMarkdown || generatePreview) ?
         <div className="section">
-          <div className="back-button" onClick={handleBackToEdit}>&#8592; back to edit</div>
+          <div className="back-button" tabIndex="0" role="button" onClick={handleBackToEdit}>&#8592; back to edit</div>
         </div>
       : '' }
       {(generateMarkdown || generatePreview) ?
         <div className="markdown">
           <div className="markdown-box">
             <div className="markdown-util">
-              <div className="copy-button" id="copy-markdown" onClick={handleCopyToClipboard}>copy</div>
-              <div className="preview-button" id="preview-markdown" onClick={handleGeneratePreview}>preview</div>
+              <div className="copy-button" tabIndex="0" role="button" id="copy-markdown" onClick={handleCopyToClipboard}>copy</div>
+              <div className="preview-button" tabIndex="0" role="button" id="preview-markdown" onClick={handleGeneratePreview}>preview</div>
             </div>
             {generatePreview ? <MarkdownPreview prefix={prefix} data={data} link={link} social={social} /> : ''}
             {generateMarkdown ? <Markdown prefix={prefix} data={data} link={link} social={social} /> : ''}
